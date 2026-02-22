@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4AD3FDEC2F4B9BD4005E2807 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4AD3FDEB2F4B9BD4005E2807 /* Localizable.xcstrings */; };
+		4AD3FDEE2F4B9E30005E2807 /* ToDo Task-InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4AD3FDED2F4B9E30005E2807 /* ToDo Task-InfoPlist.xcstrings */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0E6717AA2EE910E3002BF03A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		0E67179C2EE910E1002BF03A /* ToDo Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDo Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6717A92EE910E3002BF03A /* ToDo TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6717B32EE910E3002BF03A /* ToDo TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AD3FDEB2F4B9BD4005E2807 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4AD3FDED2F4B9E30005E2807 /* ToDo Task-InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "ToDo Task-InfoPlist.xcstrings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +82,8 @@
 		0E6717932EE910E1002BF03A = {
 			isa = PBXGroup;
 			children = (
+				4AD3FDEB2F4B9BD4005E2807 /* Localizable.xcstrings */,
+				4AD3FDED2F4B9E30005E2807 /* ToDo Task-InfoPlist.xcstrings */,
 				0E67179E2EE910E1002BF03A /* ToDo Task */,
 				0E6717AC2EE910E3002BF03A /* ToDo TaskTests */,
 				0E6717B62EE910E3002BF03A /* ToDo TaskUITests */,
@@ -193,6 +202,8 @@
 				en,
 				Base,
 				"es-419",
+				it,
+				fr,
 			);
 			mainGroup = 0E6717932EE910E1002BF03A;
 			minimizedProjectReferenceProxies = 1;
@@ -213,6 +224,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD3FDEE2F4B9E30005E2807 /* ToDo Task-InfoPlist.xcstrings in Resources */,
+				4AD3FDEC2F4B9BD4005E2807 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +343,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -387,6 +401,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
