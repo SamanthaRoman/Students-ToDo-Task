@@ -13,12 +13,10 @@ struct ContentView: View {
     @State private var columnVisibility: NavigationSplitViewVisibility = .all // navigation side panel
     @State private var isShowingAddGroup = false
     @Environment(\.scenePhase) private var scenePhase
+    @AppStorage("isDarkMode") private var isDarkMode = false
     let saveKey = "SavedTaskGroups"
     @Environment(\.dismiss) private var dismiss
     @Binding var profile: Profile
-    
-    // MARK: Mini Challenge Adding the functionality of DarkMode
-    @AppStorage("isDarkMode") private var isDarkMode = false
     
     
     var body: some View {
@@ -58,16 +56,31 @@ struct ContentView: View {
                 ContentUnavailableView("Select a Group", systemImage: "sidebar.left")
             }
         } // End Detail
-        .navigationSplitViewStyle(.balanced)
+        .navigationSplitViewStyle(.balanced) // all space of ipad
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $isShowingAddGroup){
             NewGroupView { newGroup in
-                taskGroups.append(newGroup)
-                selectedGroup = newGroup
+                profile.groups.append(newGroup)
+                // selectedGroup = newGroup
             }
         }
+        .onAppear {
+            loadData()
+        }
+        .onChange(of: scenePhase) { oldValue, newValue in
+            if newValue == .active {
+                print("🟢 App is Active")
+            } else if newValue == .inactive {
+                print("🟡 App is Inactive")
+            } else if newValue == .background {
+                print("🔴 App is Background - Saving Data!")
+                saveData()
+            }
+        }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
-    func savedData() {
+    
+    func saveData() {
         if let encodedData = try? JSONEncoder().encode(profile.groups){
             UserDefaults.standard.set(encodedData, forKey: saveKey)
         }
@@ -80,9 +93,9 @@ struct ContentView: View {
                 return
             }
         }
+        // Show mock data for dev purposes
         if profile.groups.isEmpty {
             profile.groups = TaskGroup.sampleData
         }
-    }
-    
+    }    
 }
