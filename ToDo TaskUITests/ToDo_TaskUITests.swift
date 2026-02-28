@@ -39,8 +39,8 @@ final class ToDo_TaskUITests: XCTestCase {
         }
     }
     
-    func testTaskHasDateVisible() {
-        let app = XCUIApplication()
-        app.launch
-    }
+//    func testTaskHasDateVisible() {
+//        let app = XCUIApplication()
+//        app.launch
+//    }
 }
