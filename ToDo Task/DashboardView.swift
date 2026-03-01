@@ -29,9 +29,11 @@ struct DashboardView: View {
                             .textCase(.uppercase)
                             .foregroundColor(.secondary)
                             .padding(.top, 40)
+                            .accessibilityIdentifier("welcome_text")
                         
                         Text("Who is working today?")
                             .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .accessibilityIdentifier("welcome_text_subhead")
                     }
                     LazyVGrid(columns: columns, spacing: 25) {
                         ForEach($profiles) {$profile in
@@ -39,6 +41,7 @@ struct DashboardView: View {
                                 ProfileCardView(profile: profile)
                             }
                             .buttonStyle(PlainButtonStyle())
+                            .accessibilityIdentifier("profile_\($profile.name)")
                         }
                     }
                     .padding(.horizontal)
@@ -52,6 +55,7 @@ struct DashboardView: View {
                     } label: {
                         Image(systemName: isDarkMode ? "sun.max.fill" : "moon.fill")
                     }
+                    .accessibilityIdentifier("button_dark_mode")
                 }
             }
             .navigationDestination(for: Profile.self) { selectedProfile in
@@ -76,10 +80,12 @@ struct ProfileCardView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 22))
             }
             .frame(width: 120, height: 120)
+            .accessibilityIdentifier("profile_img_\(profile.profileImage)")
             Text(profile.name)
                 .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(.cyan)
+                .accessibilityIdentifier("profile_name_txt_\(profile.name)")
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 25)

@@ -27,6 +27,7 @@ struct ContentView: View {
                     NavigationLink(value: group) {
                         Label(group.title, systemImage: group.symbolName)
                     }
+                    .accessibilityIdentifier("group_\(group.title)")
                 }
             } // End List
             .navigationTitle(profile.name)
@@ -38,6 +39,7 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "chevron.left")
                     }
+                    .accessibilityIdentifier("btn_back")
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -45,6 +47,7 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .accessibilityIdentifier("btn_add_group")
                 }
             }
         } detail : {
@@ -55,6 +58,7 @@ struct ContentView: View {
             } else {
                 ContentUnavailableView("Select a Group", systemImage: "sidebar.left")
             }
+            
         } // End Detail
         .navigationSplitViewStyle(.balanced) // all space of ipad
         .navigationBarBackButtonHidden(true)
@@ -63,6 +67,7 @@ struct ContentView: View {
                 profile.groups.append(newGroup)
                 // selectedGroup = newGroup
             }
+            .accessibilityIdentifier("sheet_add_group")
         }
         .onAppear {
             loadData()
@@ -78,6 +83,7 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
+        .accessibilityIdentifier("sheet_load_data")
     }
     
     func saveData() {
