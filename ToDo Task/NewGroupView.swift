@@ -23,6 +23,7 @@ struct NewGroupView: View {
                 Section("Group Name") {
                     TextField("Type in the name of your group", text: $groupName)
                 }
+                .accessibilityIdentifier("group_name_text_field")
                 
                 Section("Select Icon") {
                     LazyVGrid(columns:[GridItem(.adaptive(minimum:40))]) {
@@ -39,6 +40,7 @@ struct NewGroupView: View {
                                 .onTapGesture {
                                     selectedIcon = icon
                                 }
+                                .accessibilityIdentifier("icon_\(icon)")
                         }
                     }
                     .padding(.vertical)
@@ -56,6 +58,7 @@ struct NewGroupView: View {
                         dismiss()
                     } // End Save Btn
                     .disabled(groupName.isEmpty)
+                    .accessibilityIdentifier("btn_save_new_group")
                 }
             }
         } // NavStk

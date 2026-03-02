@@ -36,14 +36,15 @@ struct DashboardView: View {
                             .accessibilityIdentifier("welcome_text_subhead")
                     }
                     LazyVGrid(columns: columns, spacing: 25) {
-                        ForEach($profiles) {$profile in
-                            NavigationLink(value: profile){
+                        ForEach($profiles) { $profile in
+                            NavigationLink(value: profile) {
                                 ProfileCardView(profile: profile)
                             }
                             .buttonStyle(PlainButtonStyle())
-                            .accessibilityIdentifier("profile_\($profile.name)")
+                            .accessibilityIdentifier("ProfileCard_\(profile.name)")
                         }
                     }
+                    
                     .padding(.horizontal)
                 }
             }

@@ -27,7 +27,7 @@ struct ContentView: View {
                     NavigationLink(value: group) {
                         Label(group.title, systemImage: group.symbolName)
                     }
-                    .accessibilityIdentifier("group_\(group.title)")
+                    .accessibilityIdentifier("group_link_\(group.title)")
                 }
             } // End List
             .navigationTitle(profile.name)
