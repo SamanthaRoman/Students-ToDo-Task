@@ -22,4 +22,7 @@ jobs:
           xcodebuild build \
             -scheme "ToDo Task" \
             -destination 'generic/platform=iOS Simulator' \
-            -quiet
+            -quiet \
+            IPHONEOS_DEPLOYMENT_TARGET=18.0 \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
